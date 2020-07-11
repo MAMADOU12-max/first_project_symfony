@@ -1,0 +1,158 @@
+<body  style=" " > 
+ {# background-image:url('{{asset('images/icream.jpg')}}') ;  #}
+<div class="container">  
+   
+{{ form_start(form) }}
+ 
+ 
+     <!-- Material form register  --> 
+    <div class="card bg-primary mt-5" style="width:40vw">
+
+        <h5 class="card-header info-color white-text text-center ">
+            <strong> <h3 class="text-warning text-center ">Create new Student</h3></strong>
+        </h5>
+
+    <!-- Card content -->
+        <div class="card-body px-lg-5 pt-0 text-center">
+                <hr>
+                <div class="form-row">
+                    <div class="col">
+                        <!-- First name--> 
+                          <div class="md-form">
+                                 <span id="firstname_error" class="text-danger font-weight-bold"> </span>
+                                {{form_widget(form.firstname ,{'attr':{'placeholder':"your firstname",'class':"firstname"}}) }} 
+                            <label class="text-white" for="materialRegisterFormFirstName">Firstname</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!--Last name-->  
+                        <div class="md-form">
+                             <span id="lastname_error" class="text-danger font-weight-bold"> </span>
+                            {{form_widget(form.lastname ,{'attr':{'placeholder':"your lastname"}})}} 
+                            <label class="text-white" for="materialRegisterFormLastName">Lastname</label>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <!--  E-mail --> 
+                <div class="md-form mt-0">
+                     <span id="email_error" class="text-danger font-weight-bold"> </span>
+                    {{form_widget(form.Email ,{'attr':{'placeholder':"your email (optional)"}})}} 
+                    <label class="text-white" for="materialRegisterFormEmail">Email</label>
+                </div>
+                <hr> 
+
+                <!-- info -->
+            <div class="form-row">
+                    <div class="col" >
+                        <!-- phone -->  
+                        <div class="md-form">
+                             <span id="phone_error" class="text-danger font-weight-bold"> </span>
+                            {{ form_widget(form.phone,{'attr':{'placeholder':"your number (optional) "}} )}}
+                            <label class="text-white" for="materialRegisterFormFirstName">Phone number</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                    <!--adrees -->  
+                        <div class="md-form">
+                             <span id="address_error" class="text-danger font-weight-bold"> </span>
+                            {{form_widget(form.adress,{'attr':{'placeholder':"enter your address"}})}} 
+                            <label class="text-white" for="materialRegisterFormLastName">Address</label>
+                        </div>
+                    </div>
+                </div>
+                <hr>  
+
+                <!-- user -->
+            <div class="form-row">
+                    <div class="col">
+                        <!-- user type --> 
+                        {# <div class="md-form">
+                            {{ form_widget(form.user_type,{'attr':{'placeholder':" "}})}} 
+                            <label class="text-white" for="materialRegisterFormFirstName">User type</label>
+                        </div> #}
+
+                            <div class="mb-1 text-white"> <h4> <strong>Statut</strong> </h4></div>
+                            <div class="form-radio mb-2 text-center">
+                                <input class="form-radio-input categories categories_success" type="radio"  id="categorie1" name="categorie" value="boursier">  
+                                
+                                <label class="form-radio-label mr-2 font-weight-bold text-white " for="categorie1" {# for="{{ form.user_type.vars.id }}"
+                                 class="{{ form.user_type.vars.required ? 'required'}}"#}> 
+                                    Fellow
+                                </label>
+                                <input class="form-radio-input categories categories_success text-white"  type="radio" id="categorie2" name="categorie" value="Nboursier">
+                                
+                                <label class="form-radio-label font-weight-bold text-white" for="categorie2">
+                                    No fellow
+                                </label></br>
+                            </div> 
+
+                    </div>
+
+                      {# price  #}
+                    {# <div class="col"> 
+                        <div class="md-form">
+                            {{ form_widget(form.fellow_price)}} 
+                            <label class="text-white" for="materialRegisterFormLastName">Fellow price</label>
+                        </div>
+                    </div>  #}
+                    <div class="col">
+                        <span id="price_error" class="text-danger font-weight-bold"> </span>
+                        <label for="exampleFormControlSelect1" class="text-white">Price Fellow</label>
+                             {{form_widget(form.fellow_price)}} 
+                        {# <select class="form-control" id="exampleFormControlSelect1">
+                         
+                            <option value="{{form_widget(form.fellow_price)}}">   {# {{form_widget(form.fellow_price ,{'attr':{'placeholder':"your lastname"}})}} } </option>
+                            <option value="{{form_widget(form.fellow_price)}}"> {{ form.fellow_price }} </option> 
+                        </select> #}
+                    </div>
+ 
+                </div>
+                <hr> 
+                    
+                <!-- room -->  
+                <div class="md-form mt-0">
+                     <span id="room_error" class="text-danger font-weight-bold"> </span>
+                    {{form_widget(form.room)}} 
+                    <label class="text-white" for="materialRegisterFormEmail">Room's number</label>
+                </div> 
+                <hr>  
+
+                <!--  date --> 
+                <div class="md-form mt-0">
+                     <span id="date_error" class="text-danger font-weight-bold"> </span>
+                    {{form_widget(form.date_of_birth)}} 
+                    <label for="materialRegisterFormEmail"> </label>
+                </div>
+                <hr> 
+
+            <!-- Newsletter -->
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
+                    <label class="text-white" class="form-check-label" for="materialRegisterFormNewsletter">Confirm my subscribe</label>
+                </div>
+
+                <!-- sign in  -->
+                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" >{{ button_label|default('Submit form') }}</button>
+    
+
+                <a type="button" class="btn-floating btn-fb btn-sm">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                
+                <button class="btn btn-warning"><a href="{{ path('room_index') }}">back to list</a> </button>
+            <!-- comment la rk Form-->  
+        </div>
+
+    </div>
+ 
+    
+{{ form_end(form) }}
+</div>  
+   
+</body>
+
+{% block javascripts %}
+    <script src= {{asset('JS/valid_form.js')}} ></script> 
+{% endblock %}

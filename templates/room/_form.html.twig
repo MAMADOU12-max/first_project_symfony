@@ -1,0 +1,55 @@
+<body  {#style="background-image:url('{{asset('images/studentup.jpg')}}') ; "#} >
+ 
+<div class="container"> 
+
+{{ form_start(form) }}
+   
+    <!-- Material form register  -->
+<div class="card bg-primary mt-4" >
+    
+      <h5 class="card-header info-color white-text text-center py-4">
+            <strong><h3 class="text-warning text-center">Save a room</h3> </strong>
+        </h5>
+   <!-- Card content -->
+    <div class="card-body px-lg-5 pt-0 text-center">
+            
+            <hr>
+             <!--  E-mail --> 
+            <div class="md-form mt-0">
+                  {{form_widget(form.number_room)}} 
+                <label class="text-light" for="materialRegisterFormEmail">Number </label>
+            </div>
+             <hr> 
+ 
+             <!-- room -->  
+            <div class="md-form mt-0">
+                 {{form_widget(form.number_building)}} 
+                <label  class="text-light"  for="materialRegisterFormEmail">Room's number</label>
+            </div>
+            <hr>  
+              
+          <!-- Newsletter -->
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
+                <label class="form-check-label text-light" for="materialRegisterFormNewsletter">Confirm my subscribe</label>
+            </div>
+
+            <!-- sign in  -->
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" >{{ button_label|default('Submit form') }}</button>
+ 
+
+            <a type="button" class="btn-floating btn-fb btn-sm">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            
+             <button class="btn btn-warning"><a href="{{ path('student_index') }}">back to list</a> </button>
+        <!-- comment la rk Form-->  
+    </div>
+
+</div>
+  
+ 
+{{ form_end(form) }}
+</div>  
+   
+</body>

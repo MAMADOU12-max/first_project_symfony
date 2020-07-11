@@ -1,0 +1,67 @@
+ {% extends 'base.html.twig' %}
+
+  
+        {% block title %}Student{% endblock %}
+        {# for show all and delete  #}
+        {% block body %}
+        <body  style="background-image:url('{{asset('images/icream.jpg')}}') ; " >
+        <div class="card bg-primary mt-5" style="width:40vw">
+            <strong> <h3 class="text-warning text-center ">Student</h3></strong>
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th class="text-white" for="materialRegisterFormFirstName" >Id</th>
+                        <td  class="text-white" for="materialRegisterFormFirstName">{{ student.id }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-white" for="materialRegisterFormFirstName" >Registration_number</th>
+                        <td  class="text-white" for="materialRegisterFormFirstName">{{ student.registrationNumber }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-white" for="materialRegisterFormFirstName">Firstname</th>
+                        <td class="text-white" for="materialRegisterFormFirstName">{{ student.firstname }}</td>
+                    </tr>
+                    <tr>
+                        <th  class="text-white" for="materialRegisterFormFirstName">Lastname</th>
+                        <td class="text-white" for="materialRegisterFormFirstName" >{{ student.lastname }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-white" for="materialRegisterFormFirstName">Phone</th>
+                        <td class="text-white" for="materialRegisterFormFirstName">{{ student.phone }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-white" for="materialRegisterFormFirstName">Email</th>
+                        <td class="text-white" for="materialRegisterFormFirstName">{{ student.Email }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-white" for="materialRegisterFormFirstName">Date_of_birth</th>
+                        <td class="text-white" for="materialRegisterFormFirstName">{{ student.dateOfBirth ? student.dateOfBirth|date('Y-m-d') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-white" for="materialRegisterFormFirstName">User_type</th>
+                        <td class="text-white" for="materialRegisterFormFirstName">{{ student.userType }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-white" for="materialRegisterFormFirstName">Fellow_price</th>
+                        <td class="text-white" for="materialRegisterFormFirstName">{{ student.fellowPrice }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-white" for="materialRegisterFormFirstName">Adress</th>
+                        <td class="text-white" for="materialRegisterFormFirstName">{{ student.adress }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="btn btn-light"><a href="{{ path('student_index') }}">back to list</a></button> 
+
+            <button class="btn btn-warning"><a href="{{ path('student_edit', {'id': student.id}) }}">Update</a></button> 
+
+           
+            {{ include('student/_delete_form.html.twig') }}
+       <div>
+       </div>  
+   
+</body>
+
+  {% endblock %}

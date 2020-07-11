@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Room index{% endblock %}
+
+{% block body %}
+<body  style="" >
+      {#background-image:url('{{asset('images/student.jpg')}}') ; #}
+    <div class="container-fluid">    
+    <div class="row justify-content-center"> 
+         <h3 class="my-3 text-warning text-center">ITEMS ROOMS</h3>
+
+        <div class="col-lg-10 offset-1 text-center" style="overflow-y:scroll;height:200px;"> 
+          
+            <table class="table table-hover" style="overflow-y:scroll">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Number_room</th>
+                        <th>Number_building</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room in rooms %}
+                        <tr>
+                            <td>{{ room.id }}</td>
+                            <td>{{ room.numberRoom }}</td>
+                            <td>{{ room.numberBuilding }}</td>
+                            <td>
+                                <a href="{{ path('room_show', {'id': room.id}) }}"><button class="btn btn-primary">show</button></a>
+                                <a href="{{ path('room_edit', {'id': room.id}) }}"><button class="btn btn-success">Edit</button></a>
+                            </td>
+                        </tr>
+                     {% else %}
+                        <tr>
+                            <td colspan="4">no records found</td>
+                        </tr>
+                      {% endfor %}
+                </tbody>
+            </table>
+
+
+        </div>
+          
+            
+    </div> 
+{#     
+            <a href="{{ path('room_new') }}"><button class="btn btn-warning "> Create new</button></a></div> #}
+
+            <div class="text-center" style="position:relative"><button class="btn btn-warning "><a href="{{ path('room_new') }}">Save a new </a></button></div> 
+            
+ </div>  
+
+ </body> 
+{% endblock %}

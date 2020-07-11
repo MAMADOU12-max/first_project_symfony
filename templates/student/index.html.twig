@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Student index{% endblock %}
+ 
+{% block body %} 
+<body>
+  
+<div class="container-fluid">    
+    <div class="row justify-content-center"> 
+         <h3 class="my-3 text-warning text-center">ITEMS STUDENTS</h3>
+
+        <div class="col-lg-10 offset-1 text-center" style="overflow-y:scroll;height:400px;"> 
+          
+            <table class="table table-hover bg-white" style="overflow-y:scroll">
+                <thead>
+                    <tr>
+                        {#<th>Id</th>#}
+                        <th>Registration_number</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        {#<th>Phone</th>#}
+                        <th>Email</th>
+                        {#<th>Date_of_birth</th>#}
+                        <th>Statut</th> 
+                        <th>Fellow_price</th>
+                        <th>Adress</th>
+                        <th>Room</th>
+                        <th>actions</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                {% for student in students %}
+                    <tr>
+                        {#<td>{{ student.id }}</td>#}
+                        <td>{{ student.registrationNumber }}</td>
+                        <td>{{ student.firstname }}</td>
+                        <td>{{ student.lastname }}</td>
+                        {#<td>{{ student.phone }}</td>#}
+                        <td>{{ student.Email }}</td>
+                       {#<td>{{ student.dateOfBirth ? student.dateOfBirth|date('Y-m-d') : '' }}</td>#}
+                        <td>{{ student.userType }}</td>
+                        <td>{{ student.fellowPrice }}</td>
+                        <td>{{ student.adress}}</td>
+                        <td>{{ student.room }}</td>
+
+                        <td colspan="3" style="display:flex;">
+                            <a href="{{ path('student_show', {'id': student.id}) }}"><button class="btn btn-primary">show</button></a>
+                            <a href="{{ path('student_edit', {'id': student.id}) }}"><button class="btn btn-success">Edit</button></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="11">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+ 
+            <div class="text-center" style="position:relative"><button class="btn btn-warning "><a href="{{ path('student_new') }}">Create new student</a></button></div> 
+        
+    </div>        
+ </div>   
+    
+</body> 
+{% endblock %}
+  {#surcharge js#}
+                                     
+{% block javascripts %}
+                            {# ----------scroll page-------- #}   
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+            document.SelectorAll() 
+    </script>
+{% endblock %}   

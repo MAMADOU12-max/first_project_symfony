@@ -1,0 +1,117 @@
+ {# <body  style="background-image:url('{{asset('images/studentup.jpg')}}') ; " >
+ 
+<div class="container">  
+   
+{{ form_start(form) }}
+ 
+ 
+     <!-- Material form register  -->
+    <div class="card bg-primary mt-5" style="width:40vw">
+
+        <h5 class="card-header info-color white-text text-center ">
+            <strong> <h3 class="text-warning text-center ">Create new Student</h3></strong>
+        </h5>
+
+    <!-- Card content -->
+        <div class="card-body px-lg-5 pt-0 text-center">
+                <hr>
+                <div class="form-row">
+                    <div class="col">
+                        <!-- First name-->  
+                        <div class="md-form">
+                                {{form_widget(form.firstname)}} 
+                            <label class="text-white" for="materialRegisterFormFirstName">First name</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!--Last name-->  
+                        <div class="md-form">
+                            {{form_widget(form.lastname)}} 
+                            <label class="text-white" for="materialRegisterFormLastName">Last name</label>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <!--  E-mail --> 
+                <div class="md-form mt-0">
+                    {{form_widget(form.Email)}} 
+                    <label class="text-white" for="materialRegisterFormEmail">Email</label>
+                </div>
+                <hr> 
+
+                <!-- info -->
+            <div class="form-row">
+                    <div class="col" >
+                        <!-- phone -->  
+                        <div class="md-form">
+                            {{ form_widget(form.phone)}}
+                            <label class="text-white" for="materialRegisterFormFirstName">Phone number</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                    <!--adrees -->  
+                        <div class="md-form">
+                            {{form_widget(form.adress)}} 
+                            <label class="text-white" for="materialRegisterFormLastName">Adresse</label>
+                        </div>
+                    </div>
+                </div>
+                <hr>  
+
+                <!-- user -->
+            <div class="form-row">
+                    <div class="col">
+                        <!-- user type --> 
+                        <div class="md-form">
+                            {{ form_widget(form.user_type)}} 
+                            <label class="text-white" for="materialRegisterFormFirstName">User type</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        {# fellow    
+                        <div class="md-form">
+                            {{ form_widget(form.fellow_price)}} 
+                            <label class="text-white" for="materialRegisterFormLastName">Fellow price</label>
+                        </div>
+                    </div>
+                </div>
+                <hr> 
+                    
+                <!-- room -->  
+                <div class="md-form mt-0">
+                    {{form_widget(form.room)}} 
+                    <label class="text-white" for="materialRegisterFormEmail">Room's number</label>
+                </div>
+                <hr>  
+                <!--  date --> 
+                <div class="md-form mt-0">
+                    {{form_widget(form.date_of_birth)}} 
+                    <label for="materialRegisterFormEmail"> </label>
+                </div>
+                <hr> 
+             
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
+                    <label class="text-white" class="form-check-label" for="materialRegisterFormNewsletter">Confirm my subscribe</label>
+                </div>
+
+                --<sign in--<  
+                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" >{{ include('student/_delete_form.html.twig') }}</button>
+    
+
+                <a type="button" class="btn-floating btn-fb btn-sm">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                
+                <button class="btn btn-warning"><a href="{{ path('student_index') }}">back to list</a> </button>
+           comment la rk Form--  
+        </div>
+
+    </div>
+ 
+   
+{{ form_end(form) }}
+</div>  
+   
+</body> #}
